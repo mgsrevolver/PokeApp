@@ -8,7 +8,7 @@ import logo from '../poke-logo.jpeg'
 
 const Main = () => {
   const [loading, setLoading] = useState(true)
-  const [mods, setMods] = React.useState([])
+  const [mods, setMods] = useState([])
   //const [selectedMods, selectedModsSet] = React.useState(null)
 
   useEffect(() => {
