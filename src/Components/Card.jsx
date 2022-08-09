@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { RiSearch2Line } from 'react-icons/ri'
@@ -13,10 +14,15 @@ const Card = ({ pokemon, loading }) => {
   const [modName, setModName] = useState('')
   const [searchInput, setSearchInput] = useState('')
 
-  /* const openPokeInfo = async (res) => {
-    setModName(res.name)
-    handleShow()
-  } */
+  const ModsType = PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    _links: PropTypes.shape({
+      self: PropTypes.string.isRequired,
+      git: PropTypes.string.isRequired,
+      html: PropTypes.string.isRequired,
+    }),
+  })
 
   return (
     <>
@@ -27,7 +33,7 @@ const Card = ({ pokemon, loading }) => {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>{modName}</Modal.Title>
+          <Modal.Title>{ModsType.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="poke-content"></Modal.Body>
       </Modal>
